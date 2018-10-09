@@ -1,0 +1,23 @@
+<% if @user.errors.any? %>
+	<h2>These errors prevent the form submiting</h2>
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for(@user, :html => {class: 'form-horizontal', role: 'form'}) do |f| %>
+	<p>
+		<%= f.label :name %> <br>
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.label :email %> <br>
+		<%= f.email_field :email %>
+	</p>
+	<p>
+		<%= f.submit "Sign up", class: "btn btn-primary btn-lg" %>
+	</p>
+
+<%end%>

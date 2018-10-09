@@ -9,11 +9,15 @@ class UsersController < ApplicationController
 		if @user.save
 			session[:user_id] = @user.id
 			flash[:success] = "Welcome to our App"
-			redirect_to "root"
+			redirect_to "root_path"
 
 		else
 			redirect_to 'new'
 		end
+	end
+
+	def home
+		
 	end
 
 	private
