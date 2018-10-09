@@ -1,0 +1,16 @@
+<div id="navbar">
+
+	<% if !logged_in? %>
+	<ul>
+		<li><%= link_to 'Home', root_path%></li>
+		<li><%= link_to 'Login', login_path%></li>
+		<li><%= link_to 'Sign up', signup_path%></li>
+	</ul>
+	<% else %>
+	<ul>
+		<li><%= link_to 'New Events', root_path%></li>
+		<li><%= link_to 'Invite Users', root_path%></li>
+		<li><%= link_to 'Log out', logout_path, method: :delete %></li>
+	</ul>
+	<% end %>
+</div>
