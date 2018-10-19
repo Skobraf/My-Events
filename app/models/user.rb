@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	has_many :hosted_events, class_name: 'Event', foreign_key: 'creator_id'
 	before_save { self.email = email.downcase }
 	validates :name, presence: true,
 				 length: {minimum: 3, maximum: 25},
