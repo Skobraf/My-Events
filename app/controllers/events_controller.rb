@@ -1,0 +1,3 @@
+class EvenetsController < ApplicationCOntroller
+	
+end
