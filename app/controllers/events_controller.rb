@@ -1,5 +1,5 @@
 class EvenetsController < ApplicationController
-
+		before_action :require_user, only: [:create, :new]
 	def index
 		@past_events = Event.past
 		@future_events = Event.future
@@ -10,7 +10,7 @@ class EvenetsController < ApplicationController
 	end
 
 	def create
-		@event = current_user.create(event_params)
+		@event = current_user.build(event_params)
 		if @event.save
 			redirect_to @event
 		else
