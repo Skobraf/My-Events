@@ -6,7 +6,7 @@ class InvitationsController < ApplicationController
 	end
 
 	def create
-		@invitation = current_user.events.build(invitation_params)
+		@invitation = current_user.invitations.build(invitation_params)
 		if @invitation.sav
 			flash[:sucess] = "Invitation sent!"
 			redirect_to @invitation
@@ -15,7 +15,7 @@ class InvitationsController < ApplicationController
 		end
 	end
 	def show
-		@invitation = User.find(params[:id])
+		@invitation = Invitation.find(params[:id])
 	end
 
 	private
