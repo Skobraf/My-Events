@@ -16,6 +16,11 @@ class InvitationsController < ApplicationController
 	end
 	def show
 		@invitation = Invitation.find(params[:id])
+
+	end
+
+	def pending_invitations
+		@invitations = Invitation.where(invited_user: current_user).all
 	end
 
 	private

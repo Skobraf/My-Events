@@ -20,6 +20,7 @@ class EvenetsController < ApplicationController
 
 	def show 
 		@event = Event.find(params[:id])
+		redirect_to root_path if @event.creator != current_user
 	end
 
 	private

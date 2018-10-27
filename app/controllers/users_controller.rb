@@ -20,6 +20,10 @@ class UsersController < ApplicationController
 		
 	end
 
+	def pending_invitations
+		@invitations = current_user.invitations_received.all
+	end
+
 	private
 	def user_params
 		params.require(:user).permit(:name, :email)
