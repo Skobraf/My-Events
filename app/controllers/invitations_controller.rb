@@ -19,9 +19,6 @@ class InvitationsController < ApplicationController
 
 	end
 
-	def pending_invitations
-		@invitations = Invitation.where(invited_user: current_user).all
-	end
 
 	private
 	def invitation_params
