@@ -8,8 +8,9 @@
 	</ul>
 	<% else %>
 	<ul>
-		<li><%= link_to 'New Events', root_path%></li>
-		<li><%= link_to 'Invite Users', root_path%></li>
+		<li><%= link_to 'New Events', new_event_path %></li>
+		<li><%= link_to 'Pending Invitations', pending_path %></li>
+		<li><%= link_to 'Invite Users', new_invitation_path %></li>
 		<li><%= link_to 'Log out', logout_path, method: :delete %></li>
 	</ul>
 	<% end %>
