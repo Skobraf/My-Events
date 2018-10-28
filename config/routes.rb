@@ -10,4 +10,5 @@ Rails.application.routes.draw do
  delete 'logout', to: "sessions#destroy"
  get 'signup', to: "users#new"
  get 'pending', to: "users#pending_invitations"
+ patch 'accept_inv', to: "users#accept_invitation"
 end

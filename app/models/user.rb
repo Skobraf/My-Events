@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	attr_accessor :invitation_to_delete
 	has_many :events, class_name: 'Event', foreign_key: 'creator_id'
 	has_many :attendences
 	has_many :event_as_attendee, through: :attendences, source: "event"
