@@ -16,6 +16,18 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def show
+		@user = current_user
+	end
+
+	def accept_invitation
+		@invitation = Invitation.find(params[:invitation_id])
+		@event = @invitation.event
+		current_user.events_as_attendee << @event
+		current_user.save
+		redirect_to pending_path
+	end
+
 	def home
 		
 	end
