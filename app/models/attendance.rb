@@ -4,7 +4,8 @@ class Attendance < ApplicationRecord
   after_create :delete_invitation
 
   def delete_invitation
-  	@invitation = Invitation.find_by(event: self.event_id, invited_user: self.user_id)
-  	@ivitation.destroy
-  end
+    @invitation = Invitation.find_by(event: self.event_id, 
+                                     invited_user: self.user_id)
+    @invitation.destroy unless @invitation.nil?
+  end 
 end
