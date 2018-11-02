@@ -9,8 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(name: params[:user][:name], email: params[:user][:email].downcase)
 
     if @user.save
-      log_in(@user)
-      UserMailer.with(user: @user).welcome_email.deliver_later
+      @user = current_user
       redirect_to dashboard_path
     else
       render :new

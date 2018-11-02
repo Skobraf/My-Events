@@ -1,2 +1,14 @@
-<h2><%= @event.name %></h2>
-<p><%= @event.description %></p>
+<h1><%= @event.name %></h1>
+<h2><%=  @event.description %></h2>
+<% unless @event.attendees.blank? %>
+  <h2>Users attending: </h2>
+  <% @event.attendees.each do |attendee| %>
+    <h3><%= attendee.name %></h3>
+  <% end %>
+<% end %>
+<% unless @event.invitations.blank? %>
+  <h2>Users invited: </h2>
+  <% @event.invitations.each do |invitation| %>
+    <h3><%= invitation.invited_user.name %></h3>
+  <% end %>
+<% end %>
